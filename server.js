@@ -18,5 +18,5 @@ app.use('/person', personRoutes);                       //use that files
 const menuRoutes = require('./routes/menuRoute');  //import person files
 app.use('/menu', menuRoutes);                       //use that files
 
-const PORT =process.env.PORT || 3001;
-app.listen(3001,()=>console.log('server is running on port 3001'));
+const PORT =process.env.PORT;
+app.listen(PORT,()=>console.log('server is running '));
