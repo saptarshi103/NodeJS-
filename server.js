@@ -1,8 +1,9 @@
-const express = require('express')
-const app = express()
-const db = require('./db')
+const express = require('express');         //get express library
+const app = express();                      //copy it into app
+const db = require('./db');                 // importing database connection file 
+require('dotenv').config();                 //importing .env file
 
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');  //middleware( data from http is parsed from http body!)
 app.use(bodyParser.json());
 
 app.get('/',  (req, res) =>{
@@ -17,5 +18,5 @@ app.use('/person', personRoutes);                       //use that files
 const menuRoutes = require('./routes/menuRoute');  //import person files
 app.use('/menu', menuRoutes);                       //use that files
 
-
+const PORT =process.env.PORT || 3001;
 app.listen(3001,()=>console.log('server is running on port 3001'));

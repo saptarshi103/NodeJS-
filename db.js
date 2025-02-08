@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
+require('dotenv').config();                 //importing .env file
 
-const mongoURL = 'mongodb://localhost:27017/hotels';
+
+//const mongoURL = 'mongodb://localhost:27017/hotels';
+const mongoURL = process.env.mongoURL;
 
 mongoose.connect(mongoURL,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    useNewUrlParser: true,                 //may not reqire but can give warnings
+    useUnifiedTopology: true            // they are used to set some rules like use newurl parser (mongodb internal)
 });
 
 const db =mongoose.connection;
